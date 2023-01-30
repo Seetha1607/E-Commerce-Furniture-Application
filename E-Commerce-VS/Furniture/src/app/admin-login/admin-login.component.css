@@ -1,0 +1,8 @@
+.container{
+    display: block;
+    background-color:white;
+    color: black;
+    text-align:center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}

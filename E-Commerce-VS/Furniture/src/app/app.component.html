@@ -1,0 +1,30 @@
+<!-- <div class="container">
+  <hr> -->
+ <header>
+  <div class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <a routerLink = "Home" style="text-decoration: none;"><p style="padding-left: 30px;
+      padding-top: 10px;">{{title}}</p></a>
+      <div class="form-group"> 
+        <input type="text" class="form-control"[(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Furnitures">
+      </div>
+      <span class="fas fa-search search-icon"></span>    
+    </div>
+    <a routerLink="AddtoCart"><button class="btn btn-primary">
+      <i style="font-size: 20px; " class="fas fa-cart-plus"></i>
+      <div style="font-size:10px;" class="badge bg-danger">5</div>
+    </button></a>
+    <router-outlet></router-outlet>
+  </div>
+   
+ </header>
+    
+    <div class="container">
+  <a routerLink = "Register"><button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+    <mat-icon>Register</mat-icon></button></a>
+<a routerLink = "Login"><button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+  <mat-icon>login</mat-icon></button></a>
+<a routerLink = "Admin"><button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+  <mat-icon>lock</mat-icon></button></a>
+<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,51 @@
+<ng-container *ngIf="Furniture.length != 0">
+    <div class="card-table">
+      <div class="card">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Furniture Code</th>
+              <th scope="col">Furniture Image</th>
+              <th scope="col">Furniture Name</th>
+              <th scope="col">Furniture Type</th>
+              <th scope="col">Furniture Description</th>
+              <th scope="col">Furniture Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let furniture of Furniture">
+              <td>{{ furniture.furnitureCode }}</td>
+              <td><img style="width: 30%;"
+      src="../../assets/images/{{ furniture.furnitureName }}.jpeg"/>
+  </td>
+              <td>{{ furniture.furnitureName }}</td>
+              <td>{{ furniture.furnitureType }}</td>
+              <td>{{ furniture.furnitureDescription }}</td>
+              <td>{{ furniture.furniturePrice }}</td>
+              <td>
+                <button (click)="removeProduct(furniture)" class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div><button (click)="checkOut()" style="text-align: end;" mat-raised-button color="primary">Check Out</button> </div><br>
+        <a routerLink="/Dashboard">To add more products, Click Here</a>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="Furniture.length == 0">
+    <div class="container">
+      <div class="card">
+        <h2 style="text-align: center;">Cart</h2>
+      </div>
+      <div class="center">
+        <h3>Your cart is empty</h3>
+        <button routerLink="/DisplayCart" mat-raised-button color="primary">
+          Add Products Now
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  

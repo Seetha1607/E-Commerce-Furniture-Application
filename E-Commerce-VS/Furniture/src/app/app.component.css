@@ -1,0 +1,33 @@
+.container{
+    display: block;
+    background-color:white;
+    color: black;
+    text-align:end;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+a{
+    display: inline-block;
+    color: white;
+    margin-left: 5px;
+    
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+.form-control{
+    border-radius: 3px;
+    width: 300px;
+    height: 35px;
+    margin-left: 20px;
+  }
+  .search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 55%;
+    top:20px;
+    color:  rgb(13, 110, 253);
+  }
+  

@@ -1,0 +1,77 @@
+<nav class="navabr navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Furnitures Available</h1>
+        <div class="d-flex">
+        </div>
+    </div>
+</nav>
+<app-add-product></app-add-product>
+<div class="grid-container">
+<div  class="vehicle" *ngFor="let furniture of Furniture | filter:searchKey:'furnitureName'">
+  <div class="main">
+    <div class="card">
+      <div class="image">
+  <img
+    src="../../assets/images/{{ furniture.furnitureName }}.jpeg"
+    style="width: 90%"
+  />
+</div>
+  {{ furniture.furnitureCode }}
+  <div class="title">
+  <h1>{{ furniture.furnitureName }}</h1>
+</div>
+<div class="des">
+  <p>from {{ furniture.furnitureType }}</p>
+  <p>${{ furniture.furnitureDescription }}</p>
+  <p>{{ furniture.furniturePrice }}</p>
+  <!-- <button type="button" class="btn btn-primary" style="color: blue;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="edit(furniture)">Update
+  </button> -->
+  <button class="btn btn-danger" style="color: red;" (click)="delete(furniture)">Delete</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Furniture Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form  (submit)="onSubmit()">
+                <label for="furnitureCode">Furniture Code </label>
+                <input type="number" placeholder="furnitureCode" name="furnitureCode" [(ngModel)]="updateDetails.furnitureCode"> <br>
+              
+                <label for="furnitureName">Furniture Name</label>
+                <input type="text" placeholder="furnitureName" name="furnitureName" [(ngModel)]="updateDetails.furnitureName"> <br>
+              
+                <label for="furnitureType">Furniture Type</label>
+                <input type="text" placeholder="furnitureType" name="furnitureType" [(ngModel)]="updateDetails.furnitureType">
+                <br>
+              
+                <label for="furnitureDescription">Furniture Description</label>
+                <input type="text" placeholder="furnitureDescription" name="furnitureDescription" [(ngModel)]="updateDetails.furnitureDescription"> <br>
+              
+                <label for="furniturePrice">Furniture Price</label>
+                <input type="text" placeholder="furniturePrice" name="furniturePrice" [(ngModel)]="updateDetails.furniturePrice"> <br>
+              
+              </form>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary" (click)="onSubmit()">Update</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

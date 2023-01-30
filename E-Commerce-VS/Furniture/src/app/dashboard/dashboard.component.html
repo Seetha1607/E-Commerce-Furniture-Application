@@ -1,0 +1,36 @@
+<div class="container">
+<nav class="navabr navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Furnitures Available</h1>
+        <div class="d-flex">
+        </div>
+    </div>
+</nav>
+<div class="grid-container">
+  <div  class="vehicle" *ngFor="let furniture of Furniture | filter:searchKey:'furnitureName'">
+    <div class="main">
+      <div class="card">
+        <div class="image">
+    <img
+      src="../../assets/images/{{ furniture.furnitureName }}.jpeg"
+      style="width: 90%"
+    />
+  </div>
+    {{ furniture.furnitureCode }}
+    <div class="title">
+    <h1>{{ furniture.furnitureName }}</h1>
+  </div>
+  <div class="des">
+    <p>from {{ furniture.furnitureType }}</p>
+    <p>${{ furniture.furnitureDescription }}</p>
+    <p>Rs.{{ furniture.furniturePrice }}</p>
+    <button class="btn btn-success" style="color: green;" (click)="addToCart(furniture)">Add to Cart</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+

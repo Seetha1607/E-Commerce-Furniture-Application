@@ -1,0 +1,30 @@
+<button class="btn btn-success" type="button" style="margin-left: 900px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Furnitures</button>
+  
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Furniture Details</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    
+      <form (submit)="save()">
+        <label for="furnitureCode">Furniture Code </label>
+        <input type="number" placeholder="furnitureCode" name="furnitureCode" [(ngModel)]="productData.furnitureCode"> <br>
+      
+        <label for="furnitureName">Furniture Name</label>
+        <input type="text" placeholder="furnitureName" name="furnitureName" [(ngModel)]="productData.furnitureName"> <br>
+      
+        <label for="furnitureType">Furniture Type</label>
+        <input type="text" placeholder="furnitureType" name="furnitureType" [(ngModel)]="productData.furnitureType">
+        <br>
+      
+        <label for="furnitureDescription">Furniture Description</label>
+        <input type="text" placeholder="furnitureDescription" name="furnitureDescription" [(ngModel)]="productData.furnitureDescription"> <br>
+      
+        <label for="furniturePrice">Furniture Price</label>
+        <input type="text" placeholder="furniturePrice" name="furniturePrice" [(ngModel)]="productData.furniturePrice"> <br>
+      
+        <div><input type="submit" value="submit"></div>
+      </form>

@@ -1,0 +1,75 @@
+version: '3.9'
+services:
+  user-furniture-service:
+    image: furniture_image
+    container_name: furnitureContainer
+    build: E-Commerce-Furniture-Application
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongoService
+      - cloudapiservice
+
+
+  mongoService:
+    image: mongo:latest
+    container_name: mongoService
+    ports:
+      - 27017:27017
+    networks:
+      - mynetwork
+
+  authentication-service:
+    image: authentication_image
+    container_name: authenticationServiceContainer
+    build: UserAuthentication
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysqlService
+      - cloudapiservice
+
+
+  mysqlService:
+    image: mysql:latest
+    container_name: mysqlService
+    networks:
+      - mynetwork
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  cloudapiservice:
+    image: apigatewayservice
+    build: SpringAPIGateway
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - 9005:9005
+    environment:
+      API_GATEWAY_PORT: 9005
+
+  eureka-service:
+    container_name: containerEureka
+    build: EurekaServer
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - 8761:8761
+
+
+networks:
+  mynetwork:
+    driver: bridge

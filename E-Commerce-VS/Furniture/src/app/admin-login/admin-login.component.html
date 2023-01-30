@@ -1,0 +1,21 @@
+<div class="container">
+    <hr>
+    <div class="container col-md-6" >
+        <h2 style="color: blue;">Admin Login</h2>
+        <h3>Please enter the Admin Email Address and Password to Admin Page!</h3>
+        <h3>
+    
+            <div>
+                <label for="Email">Enter Email :  </label>
+                <input type="text"[(ngModel)] = "email"  placeholder="email" id="email" >
+            </div>
+            <br>
+            <div>
+                <label for="password">Enter Password  : </label>
+                <input type="password" placeholder="password" id="password" [(ngModel)] = "password">
+            </div>
+            <br>
+        
+            <div><button (click) = "loginFun()">Login</button> </div><br>        
+
+

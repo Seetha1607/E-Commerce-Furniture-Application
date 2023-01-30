@@ -1,0 +1,60 @@
+<div class="container">
+    <hr>
+    <div class="container col-md-6" >
+        <h2 style="color: blue;">Login</h2>
+        <h3>Please enter your Email Address and Password to Login!</h3>
+        <h3>
+    <!-- <form ngNativeValidate #regform1="ngForm" (submit) ="onSubmit()">
+            <div>
+                <label for="Email">Enter Email </label>
+                <input type="text"[(ngModel)] = "email"  placeholder="email" id="email" required>
+            </div>
+            <br>
+            <div>
+                <label for="password">Enter Password </label>
+                <input type="password" placeholder="password" id="password" [(ngModel)] = "password" required>
+            </div>
+            <br>
+        
+            <div><button mat-raised-button color="primary">Login</button> </div><br>
+    </form>
+        <a routerLink="/Register">Have an Account? If not, Please Register</a>
+        
+ -->
+ <div>
+ <form class="form" (submit)="onSubmit()" [formGroup]="profileForm">
+    <fieldset class="backcolor">
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Email" type="text" id="username" formControlName="email" [(ngModel)]="user.email"/>
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email ID is required.
+            </mat-error>
+        
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <input matInput type="password" placeholder="Password" id="password" formControlName="password" [(ngModel)]="user.password" >
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required.
+            </mat-error>
+        </mat-form-field><br>
+
+        <button color="primary" mat-button mat-raised-button 
+        type="submit" [disabled]="profileForm.controls['email'&& 'password'].invalid">Login</button>
+</fieldset>
+</form>
+</div>
+
+
+
+<!-- <form #loginForm (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="user.password" required>
+    </div>
+    <button type="submit" class="btn btn-info"[disabled]="profileForm.controls['email'&& 'password'].invalid">Login</button>
+</form> -->

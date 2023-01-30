@@ -1,0 +1,93 @@
+<div class="container">
+    <hr>
+    <div class="container col-md-6" >
+        <h2 style="color: blue;">Registeration Form</h2>
+        <h3>Please enter your Credentials to Register!</h3>
+        <h3>
+<div>
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+        <fieldset class="backcolor">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="customer Id" type="text" id="firstName" formControlName="customerId" [(ngModel)]="userObject.customerId"/>
+                <mat-error *ngIf="customerId?.errors?.['required']">
+                    customer Id is required.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Full Name" type="text" id="customerName" formControlName="customerName" [(ngModel)]="userObject.customerName" />
+                <mat-error *ngIf="customerName?.errors?.['required']">
+                    Full Name is required.
+                </mat-error>
+                <mat-error *ngIf="customerName?.errors?.['minlength']">
+                    Full Name should have minimum of 4 characters.
+                </mat-error>
+               <mat-error *ngIf="customerName?.errors?.['pattern']">
+                    Full Name can be of Alphabet characters only not numbers.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email" type="text" id="username" formControlName="email"[(ngModel)]="userObject.email" />
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Email ID is required.
+                </mat-error>
+                 <mat-error *ngIf="email?.errors?.['minlength']">
+                    Email ID  should have minimum of 2 characters.
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['maxlength']">
+                    Email ID  should have maximum of 25 characters.
+                </mat-error> 
+                <mat-error *ngIf="email?.errors?.['pattern']">
+                    Email ID should be of Alphabets, numbers and Eg: @example.com
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput type="phoneNumber" placeholder="phoneNumber" id="phoneNumber" formControlName="phoneNumber"  [(ngModel)]="userObject.phoneNumber">
+                <mat-error *ngIf="phoneNumber?.errors?.['required']">
+                    Phone Number is required.
+                </mat-error>
+                <mat-error *ngIf="phoneNumber?.errors?.['pattern']">
+                    Phone Number should be of numbers only.
+                </mat-error>
+                <mat-error *ngIf="phoneNumber?.errors?.['minlength']">
+                    Phone Number should be minimum of 10 number.
+                </mat-error>
+                <mat-error *ngIf="phoneNumber?.errors?.['maxlength']">
+                    Phone Number should be minimum of 13 numbers.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Password" id="password" formControlName="password"  [(ngModel)]="userObject.password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Password is required.
+                </mat-error>
+                <mat-error *ngIf="password?.errors?.['minlength']">
+                    Password is should be of minimum of 6 characters.
+                </mat-error>
+                <mat-error *ngIf="password?.errors?.['maxlength']">
+                    Password is should be of maximum of 10 characters.
+                </mat-error>
+                <mat-error *ngIf="password?.errors?.['pattern']">
+                    Password should have min 6 letter password, with at least a symbol, upper and lower case letters
+                    and a number.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Confirm Password" id="confirmPassword"
+                    formControlName="confirmPassword" [(ngModel)]="userObject.confirmPassword">
+                <mat-error *ngIf="profileForm.errors?.['mustMatch']===false">
+                    Password and Confirm Password should match.
+                </mat-error>
+            </mat-form-field>
+           
+            <button color="primary" mat-button mat-raised-button [disabled]="profileForm.controls['customerId' && 'customerName' && 'email' && 'phoneNumber' && 'password' && 'confirmPassword'].invalid"
+                type="submit">Register</button>
+        </fieldset>
+    </form>
+</div>
+
+
